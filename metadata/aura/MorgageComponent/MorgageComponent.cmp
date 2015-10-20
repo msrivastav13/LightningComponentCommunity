@@ -1,0 +1,5 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+   <c:MortgageForm/>
+   <br/><br/>
+   <c:MortgageResponse/>
+</aura:component>

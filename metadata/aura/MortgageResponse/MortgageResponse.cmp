@@ -1,0 +1,116 @@
+<aura:component>
+
+<aura:handler  event="c:initiateAction" action="{!c.fetchResponse}"/>
+
+<aura:handler event="aura:waiting" action="{!c.showSpinner}"/>
+<aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}"/>
+
+<aura:attribute name="result" type="ZillowParser" default="{ 'objectType': 'ZillowParser','response.thirtyYearFixed.rate': '0.0', 'response.thirtyYearFixed.MonthlyPrincipalAndInterest': '0.0' }"/>
+
+<div class="slds">
+<div class="slds-card">
+  <div class="slds-card__header slds-grid">
+
+    <div class="slds-media slds-media--center slds-has-flexi-truncate">
+      <div class="slds-media__figure">
+      </div>
+      <div class="slds-media__body">
+        <h2 class="slds-text-heading--small slds-truncate">Monthly Payments</h2>
+      </div>
+    </div>
+
+  </div>
+  <center>
+      <ui:spinner aura:id="spinner"/>
+    </center>
+  <div class="slds-card__body">
+    <ul>
+    <li class="slds-tile slds-hint-parent">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"><a href="#">DownPayment : {!v.result.response.downPayment}</a></p>
+        </div>
+    </li>
+
+     <li class="slds-tile slds-hint-parent">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"><a href="#">Monthly Property Taxes :{!v.result.response.monthlyPropertyTaxes}</a></p>
+        </div>
+    </li>
+
+     <li class="slds-tile slds-hint-parent">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"><a href="#">Monthly Hazard Insurance :{!v.result.response.monthlyHazardInsurance}</a></p>
+        </div>
+    </li>
+
+      <li class="slds-tile slds-hint-parent">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"><a href="#">Thirty year Fixed</a></p>
+        </div>
+        <div class="slds-tile__detail">
+          <dl class="dl--horizontal slds-text-body--small">
+            <dt class="slds-dl--horizontal__label">
+              <p class="slds-truncate">Rate:</p>
+            </dt>
+            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+              <p class="slds-truncate">{!v.result.response.thirtyYearFixed.rate}</p>
+            </dd>
+            <dt class="slds-dl--horizontal__label">
+              <p class="slds-truncate">MonthlyPrincipalAndInterest:</p>
+            </dt>
+            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+              <p class="slds-truncate">{!v.result.response.thirtyYearFixed.monthlyPrincipalAndInterest}</p>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <br/>
+      <li class="slds-tile slds-hint-parent">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"><a href="#">Fifteen Year Fixed</a></p>
+        </div>
+        <div class="slds-tile__detail">
+          <dl class="dl--horizontal slds-text-body--small">
+            <dt class="slds-dl--horizontal__label">
+              <p class="slds-truncate">Rate:</p>
+            </dt>
+            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+              <p class="slds-truncate">{!v.result.response.fifteenYearFixed.rate}</p>
+            </dd>
+            <dt class="slds-dl--horizontal__label">
+              <p class="slds-truncate">MonthlyPrincipalAndInterest:</p>
+            </dt>
+            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+              <p class="slds-truncate">{!v.result.response.fifteenYearFixed.monthlyPrincipalAndInterest}</p>
+            </dd>
+          </dl>
+        </div>
+      </li>
+       <br/>
+      <li class="slds-tile slds-hint-parent">
+        <div class="slds-grid slds-grid--align-spread slds-has-flexi-truncate">
+          <p class="slds-tile__title slds-truncate"><a href="#">FiveOneARM</a></p>
+        </div>
+       <div class="slds-tile__detail">
+          <dl class="dl--horizontal slds-text-body--small">
+            <dt class="slds-dl--horizontal__label">
+              <p class="slds-truncate">Rate:</p>
+            </dt>
+            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+              <p class="slds-truncate">{!v.result.response.fiveOneARM.rate}</p>
+            </dd>
+            <dt class="slds-dl--horizontal__label">
+              <p class="slds-truncate">MonthlyPrincipalAndInterest:</p>
+            </dt>
+            <dd class="slds-dl--horizontal__detail slds-tile__meta">
+              <p class="slds-truncate">{!v.result.response.fiveOneARM.monthlyPrincipalAndInterest}</p>
+            </dd>
+          </dl>
+        </div>
+      </li>
+      <br/>
+    </ul>
+  </div>
+</div>
+</div>
+</aura:component>

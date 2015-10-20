@@ -1,0 +1,51 @@
+<aura:component controller="ZillowMortageAPICallout">
+    <ltng:require styles="/resource/SLDS092/assets/styles/salesforce-lightning-design-system-ltng.css" />
+
+    <aura:attribute name="price" type="decimal"/>
+    <aura:attribute name="downpayment" type="decimal"/>
+    <aura:attribute name="zipcode" type="Integer"/>
+
+    <aura:registerEvent name="requestaction" type="c:initiateAction" />
+
+    <div class="slds">
+
+        <div class="slds-p-vertical--medium">
+          <div class="slds-page-header" role="banner">
+            <div class="slds-grid">
+              <div class="slds-col">
+                <p class="slds-text-heading--label">Lightning Component</p>
+                <h1 class="slds-text-heading--medium">Mortgage Lightning Component</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slds-form--stacked">
+
+			<div class="slds-form-element">
+				  <label class="slds-form-element__label" for="price">Price</label>
+				  <div class="slds-form-element__control">
+				    <ui:inputNumber value="{!v.price}" aura:id="price" class="slds-input" placeholder="0.0" />
+				  </div>
+		    </div>
+
+		    <div class="slds-form-element">
+				<label class="slds-form-element__label" for="downpayment">Down</label>
+				<div class="slds-form-element__control">
+				    <ui:inputNumber aura:id="downpayment" value="{!v.downpayment}" class="slds-input"  placeholder="20" />
+				</div>
+			</div>
+
+			<div class="slds-form-element">
+				  <label class="slds-form-element__label" for="zip">Zip</label>
+				  <div class="slds-form-element__control">
+				    <ui:inputNumber aura:id="zip" class="slds-input" placeholder="XXX" value="{!v.zipcode}"/>
+				  </div>
+		    </div>
+
+		  <br/>
+		  	<ui:button label="Calculate Mortgage" class="slds-button slds-button--neutral"  press="{!c.initiateRequest}"/>
+
+			</div>
+		</div>
+</aura:component>

@@ -1,0 +1,5 @@
+({
+	getresponse: function(component,event) {
+
+	}
+})
